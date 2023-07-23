@@ -36,12 +36,16 @@
         }
         public override string ToString()
         {
-            //if (ImaginaryPart < 0)
-            //    if (ImaginaryPart == -1) return $"{RealPart}-i";
-            //    else  return $"{RealPart}{ImaginaryPart}i";
-            //else if (ImaginaryPart == 1)return $"{RealPart}+i";
-            //else  return $"{RealPart}+{ImaginaryPart}i";
-            return $"( {RealPart} , {ImaginaryPart} )";
+            //return $"( {RealPart} , {ImaginaryPart} )";
+            if (ImaginaryPart == 0)
+            {
+                return $"{RealPart}";
+            }
+            if (ImaginaryPart < 0 )
+            {
+                return (ImaginaryPart == -1) ? $"{RealPart}-i" : $"{RealPart}{ImaginaryPart}i";
+            }
+            return (ImaginaryPart == 1) ? $"{RealPart}+i" : $"{RealPart}+{ImaginaryPart}i";
         }
     }
 }
