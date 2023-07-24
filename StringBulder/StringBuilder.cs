@@ -131,14 +131,22 @@ namespace StringBulder
             }
             return true;
         }
-        public StringBuilder OnBlank(string s)
+        //public StringBuilder OnBlank(string s)
+        //{
+        //    if (IsBlank())
+        //    {
+        //        Length = 0;
+        //        Append(s);
+        //    }
+        //    return this;
+        //}
+        public string OnBlank(string s)
         {
             if (IsBlank())
             {
-                Length = 0;
-                Append(s);
+                return s;
             }
-            return this;
+            return ToString();
         }
         private void EnsureCapacity(int requiredCapacity)
         {
