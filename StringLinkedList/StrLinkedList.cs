@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace StringLinkedList
 {
@@ -110,6 +111,33 @@ namespace StringLinkedList
                 resultIndex++;
             }
             current.Data = result;
+            return this;
+        }
+        public StrLinkedList RemoveWhitespaces()
+        {
+            Node current = head;
+            while (current != null)
+            {
+                int targetIndex = 0;
+                for (int i = 0; i < current.Length; i++)
+                {
+                    if (current.Data[i] != ' ' && current.Data[i] != '\n')
+                    {
+                        current.Data[targetIndex] = current.Data[i];
+                        targetIndex++;
+                    }
+                }
+                if (current.Length != targetIndex)
+                {
+                    char[] newChars = new char[targetIndex];
+                    for (int i = 0; i < targetIndex; i++)
+                    {
+                        newChars[i] = current.Data[i];
+                    }
+                    current.Data = newChars;
+                }
+                current = current.next;
+            }
             return this;
         }
         public override string ToString()

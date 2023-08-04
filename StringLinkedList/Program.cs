@@ -12,6 +12,9 @@
 
             sList.InsertAt(5, " Ooh");
             Console.WriteLine(sList.ToString());
+
+            sList.RemoveWhitespaces();
+            Console.WriteLine(sList.ToString());
         }
     }
 }
